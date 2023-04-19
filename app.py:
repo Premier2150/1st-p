@@ -1,0 +1,32 @@
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('home.html')
+
+@app.route('/generate_financial_statements', methods=['POST'])
+def generate_financial_statements():
+    # Retrieve form data
+    company_name = request.form['company_name']
+    date = request.form['date']
+    data_input = request.form['data_input']
+    statement_options = request.form['statement_options']
+    report_options = request.form['report_options']
+    recommendation_options = request.form['recommendation_options']
+
+    # Generate financial statements
+    # Code to generate financial statements goes here
+
+    # Generate report
+    # Code to generate report goes here
+
+    # Generate recommendations
+    # Code to generate recommendations goes here
+
+    # Render template with results
+    return render_template('results.html', company_name=company_name, date=date)
+
+if __name__ == '__main__':
+    app.run(debug=True)
